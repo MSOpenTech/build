@@ -1005,6 +1005,8 @@ local rule configure-really ( version ? : options * )
             }
             
             # Windows phone uses a setup script in a different directory hierarchy.
+            # The 11.0 toolset can target Windows Phone 8.0 and the 12.0 toolset can target Phone 8.1,
+            # each of which have a different directory for their vcvars setup script.
             local phone-command = [ path.native [ path.join $(parent) WPSDK ] ] ;
             if [ MATCH "(11.0)" : $(version) ]
             {
